@@ -80,13 +80,11 @@ function Hero() {
       )
     ),
     React.createElement('div', { className: 'hero-right' },
-      React.createElement('div', { className: 'hero-visual' },
-        React.createElement('div', { className: 'hero-visual-ring' }),
-        React.createElement('div', { className: 'hero-visual-ring' }),
-        React.createElement('div', { className: 'hero-visual-center' }, 'ES'),
+      // React.createElement('div', { className: 'hero-image' },
+        React.createElement('img', {className: 'hero-image', src: 'asserts/Photo/Portrait.png', alt: 'Ekjot Singh' })
       )
     )
-  );
+  // );
 }
 
 // Skills
