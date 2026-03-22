@@ -294,6 +294,13 @@ section { padding: 8rem 4rem; }
   animation-duration: 15s;
 }
 
+.hero-image {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  object-fit:contain
+}
+
 .hero-visual-center {
   position: absolute;
   inset: 60px;
