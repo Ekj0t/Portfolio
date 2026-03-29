@@ -550,6 +550,33 @@ section { padding: 8rem 4rem; }
   transition: opacity 0.3s;
   word-break: break-all;
 }
+
+/* Project image */
+.project-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effect */
+.project-card:hover .project-image {
+  transform: scale(1.08);
+}
+
+/* Content spacing */
+.project-content {
+  padding-top: 1.5rem;
+}
+
 .project-card:hover .project-link { opacity: 1; }
 
 .project-arrow {
@@ -576,6 +603,19 @@ section { padding: 8rem 4rem; }
 .projects-cta {
   margin-top: 3rem;
   text-align: center;
+}
+
+.project-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-image-wrapper::after {
+  opacity: 1;
 }
 
 /* TRAINING */
@@ -660,6 +700,26 @@ section { padding: 8rem 4rem; }
   box-shadow: 0 16px 40px rgba(26,22,18,0.1);
 }
 
+.cert-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background: #000;
+}
+
+.cert-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-image {
+  transform: scale(1.05);
+}
+
 .cert-icon {
   width: 48px; height: 48px;
   background: var(--gold-pale);
@@ -685,6 +745,63 @@ section { padding: 8rem 4rem; }
   color: var(--gold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* EDUCATION */
+.education-section {
+  background: var(--cream);
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.education-institute {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.education-details {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.education-details strong {
+  font-style: normal;
+  color: var(--ink);
+}
+
+.education-right {
+  text-align: right;
+  min-width: 200px;
+}
+
+.education-location {
+  font-size: 0.95rem;
+  color: var(--ink-faint);
+  margin-bottom: 0.3rem;
+}
+
+.education-duration {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
 }
 
 /* CONTACT */
@@ -821,4 +938,15 @@ footer {
   .projects-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .education-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .education-right {
+    text-align: left;
+  }
 }

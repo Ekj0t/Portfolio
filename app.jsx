@@ -51,7 +51,7 @@ function Nav() {
   return React.createElement('nav', { className: scrolled ? 'scrolled' : '' },
     React.createElement('a', { href: '#', className: 'nav-logo' }, 'Ekjot', React.createElement('span', null, '.')),
     React.createElement('ul', { className: 'nav-links' },
-      ['About', 'Skills', 'Projects', 'Training', 'Contact'].map(item =>
+      ['About', 'Skills', 'Projects', 'Training', 'Education', 'Contact'].map(item =>
         React.createElement('li', { key: item },
           React.createElement('a', { href: `#${item.toLowerCase()}` }, item)
         )
@@ -75,13 +75,21 @@ function Hero() {
         '  ·  +91-9478539700'
       ),
       React.createElement('div', { className: 'hero-actions' },
-        React.createElement('a', { href: '#', className: 'btn-primary' }, '↓ Download Resume'),
+
+        // React.createElement('a', { href: '#', className: 'btn-primary' }, '↓ Download Resume'),
+
+        React.createElement('a', {
+          href: 'assets/Resume.docx',
+          className: 'btn-primary',
+          download: 'Ekjot_Singh_Resume.docx'
+        }, '↓ Download Resume'),
+
         React.createElement('a', { href: '#contact', className: 'btn-outline' }, 'Get in Touch')
       )
     ),
     React.createElement('div', { className: 'hero-right' },
       // React.createElement('div', { className: 'hero-image' },
-        React.createElement('img', {className: 'hero-image', src: 'asserts/Photo/Portrait.png', alt: 'Ekjot Singh' })
+        React.createElement('img', {className: 'hero-image', src: 'assets/Photo/Portrait.png', alt: 'Ekjot Singh' })
       )
     )
   // );
@@ -185,12 +193,42 @@ function Experience() {
 
 // Projects
 const projectsData = [
-  { num: '01', name: 'Book Tracker App', link: 'github.com/Ekj0t/Book-Tracker' },
-  { num: '02', name: 'PunjabiLang', link: 'github.com/Ekj0t/DesiLang' },
-  { num: '03', name: 'SmallJPG', link: 'github.com/Ekj0t/smallJPG' },
-  { num: '04', name: '3D Java Renderer', link: 'github.com/Ekj0t/3D-Render-Using-Java' },
-  { num: '05', name: 'Procedural Planet Generator', link: 'github.com/Ekj0t/Java-Procedural-Planet-Generator' },
-  { num: '06', name: 'N-Body Galaxy Simulation', link: 'github.com/Ekj0t/n-body-galaxy-simulator' },
+  { 
+    num: '01', 
+    name: 'Book Tracker App', 
+    link: 'github.com/Ekj0t/Book-Tracker',
+    image: 'assets/Projects/BookTrackerApp.png'
+  },
+  { 
+    num: '02', 
+    name: 'PunjabiLang', 
+    link: 'github.com/Ekj0t/DesiLang',
+    image: 'assets/Projects/PunjabiLang.png'
+  },
+  { 
+    num: '03', 
+    name: 'SmallJPG', 
+    link: 'github.com/Ekj0t/smallJPG',
+    image: 'assets/Projects/smallJPG.png'
+  },
+  { 
+    num: '04', 
+    name: '3D Java Renderer', 
+    link: 'github.com/Ekj0t/3D-Render-Using-Java',
+    image: 'assets/Projects/3D renderer.png'
+  },
+  { 
+    num: '05', 
+    name: 'Procedural Planet Generator', 
+    link: 'github.com/Ekj0t/Java-Procedural-Planet-Generator',
+    image: 'assets/Projects/procedural planet generator.png'
+  },
+  { 
+    num: '06', 
+    name: 'N-Body Galaxy Simulation', 
+    link: 'github.com/Ekj0t/n-body-galaxy-simulator',
+    image: 'assets/Projects/n-body-galaxy-simulator.png'
+  }
 ];
 
 function Projects() {
@@ -200,15 +238,24 @@ function Projects() {
     React.createElement('div', { className: 'projects-grid reveal reveal-delay-2' },
       projectsData.map((p, i) =>
         React.createElement('div', { className: 'project-card', key: i },
-          React.createElement('div', { className: 'project-num' }, p.num),
-          React.createElement('h3', { className: 'project-name' }, p.name),
-          React.createElement('a', {
-            className: 'project-link',
-            href: `https://${p.link}`,
-            target: '_blank',
-            rel: 'noopener noreferrer'
-          }, p.link),
-          React.createElement('div', { className: 'project-arrow' }, '↗')
+
+          React.createElement('div', { className: 'project-image-wrapper' },
+            React.createElement('img', {
+              src: p.image,
+              className: 'project-image',
+              alt: p.name
+            })
+          ),
+
+          React.createElement('div', { className: 'project-content' },
+            React.createElement('div', { className: 'project-num' }, p.num),
+            React.createElement('h3', { className: 'project-name' }, p.name),
+            React.createElement('a', {
+              className: 'project-link',
+              href: `https://${p.link}`,
+              target: '_blank'
+            }, p.link)
+          )
         )
       )
     ),
@@ -229,17 +276,23 @@ const certsData = [
   {
     icon: '🤖',
     name: 'ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM',
-    issuer: 'Infosys'
+    issuer: 'Infosys',
+    image: 'assets/Certificates/ChatGPT-4 Prompt Engineering ChatGPT, Generative AI & LLM.jpeg'
+
   },
   {
     icon: '⚡',
     name: 'Build Generative AI Apps and Solutions with No-Code Tools',
-    issuer: 'Infosys'
+    issuer: 'Infosys',
+    image: 'assets/Certificates/Build Generative AI Apps and Solutions with No-Code Tools.jpeg'
+
   },
   {
     icon: '📘',
     name: 'Unlocking DSA with C',
-    issuer: 'CSE Pathsala'
+    issuer: 'CSE Pathsala',
+    image: 'assets/Certificates/unlocking DSA with C.png'
+
   }
 ];
 
@@ -269,7 +322,14 @@ function Training() {
     React.createElement('div', { className: 'certs-grid' },
       certsData.map((cert, i) =>
         React.createElement('div', { className: `cert-card reveal reveal-delay-${i+1}`, key: i },
-          React.createElement('div', { className: 'cert-icon' }, cert.icon),
+          React.createElement('div', { className: 'cert-image-wrapper' },
+            React.createElement('img', {
+              src: cert.image,
+              className: 'cert-image',
+              alt: cert.name
+            })
+          ),
+
           React.createElement('p', { className: 'cert-name' }, cert.name),
           React.createElement('p', { className: 'cert-issuer' }, cert.issuer)
         )
@@ -277,6 +337,60 @@ function Training() {
     )
   );
 }
+
+function Education() {
+  const educationData = [
+    {
+      institute: 'Lovely Professional University',
+      details: 'Bachelor of Technology - Computer Science and Engineering',
+      extra: 'CGPA: 7.4',
+      location: 'Punjab, India',
+      duration: 'August 2023 - Present'
+    },
+    {
+      institute: 'Guru Nanak Mission Public School',
+      details: 'Intermediate',
+      extra: 'Percentage: 81%',
+      location: 'Bhogpur, Jalandhar',
+      duration: 'April 2022 - March 2023'
+    },
+    {
+      institute: 'Guru Nanak Mission Public School',
+      details: 'Matriculation',
+      extra: 'Percentage: 84%',
+      location: 'Bhogpur, Jalandhar',
+      duration: 'April 2020 - March 2021'
+    }
+  ];
+
+  return React.createElement('section', { id: 'education', className: 'education-section' },
+
+    React.createElement('p', { className: 'section-label reveal' }, 'Education'),
+    React.createElement('h2', { className: 'section-title reveal reveal-delay-1' }, 'Academic Background'),
+
+    React.createElement('div', { className: 'education-list' },
+      educationData.map((edu, i) =>
+        React.createElement('div', { className: `education-item reveal reveal-delay-${i+1}`, key: i },
+
+          React.createElement('div', { className: 'education-left' },
+            React.createElement('h3', { className: 'education-institute' }, edu.institute),
+            React.createElement('p', { className: 'education-details' },
+              edu.details, '; ',
+              React.createElement('strong', null, edu.extra)
+            )
+          ),
+
+          React.createElement('div', { className: 'education-right' },
+            React.createElement('p', { className: 'education-location' }, edu.location),
+            React.createElement('p', { className: 'education-duration' }, edu.duration)
+          )
+
+        )
+      )
+    )
+  );
+}
+
 
 // Contact
 function Contact() {
@@ -336,6 +450,7 @@ function App() {
     React.createElement(Experience),
     React.createElement(Projects),
     React.createElement(Training),
+    React.createElement(Education),
     React.createElement(Contact),
     React.createElement(Footer)
   );
